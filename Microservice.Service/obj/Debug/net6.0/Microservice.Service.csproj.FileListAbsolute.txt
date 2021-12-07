@@ -1,0 +1,12 @@
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/bin/Debug/net6.0/Microservice.Service.deps.json
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/bin/Debug/net6.0/Microservice.Service.dll
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/bin/Debug/net6.0/ref/Microservice.Service.dll
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/bin/Debug/net6.0/Microservice.Service.pdb
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/obj/Debug/net6.0/Microservice.Service.GeneratedMSBuildEditorConfig.editorconfig
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/obj/Debug/net6.0/Microservice.Service.AssemblyInfoInputs.cache
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/obj/Debug/net6.0/Microservice.Service.AssemblyInfo.cs
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/obj/Debug/net6.0/Microservice.Service.csproj.CoreCompileInputs.cache
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/obj/Debug/net6.0/Microservice.Service.dll
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/obj/Debug/net6.0/ref/Microservice.Service.dll
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/obj/Debug/net6.0/Microservice.Service.pdb
+/home/kennethkiiza/Documents/Repos/Tutorials/Microservice/Microservice.Service/obj/Debug/net6.0/Microservice.Service.csproj.AssemblyReference.cache
