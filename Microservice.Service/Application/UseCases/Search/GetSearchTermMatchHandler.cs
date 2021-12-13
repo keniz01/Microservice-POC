@@ -6,9 +6,9 @@ namespace Microservice.Service.Application.UseCases.Search
 {
     public class GetSearchTermMatchQueryHandler : IQueryHandler<SearchTermMatchRequest, Result<IReadOnlyList<SearchTermMatch>>>
     {
-        private readonly IReadOnlyDatabaseContext _context;
+        private readonly IReadDatabaseContext _context;
 
-        public GetSearchTermMatchQueryHandler(IReadOnlyDatabaseContext context)
+        public GetSearchTermMatchQueryHandler(IReadDatabaseContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }

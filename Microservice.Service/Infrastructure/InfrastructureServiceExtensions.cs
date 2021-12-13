@@ -11,7 +11,7 @@ namespace Microservice.Service.Infrastructure
             IConfiguration configuration)
         {
             services.AddMediatR(typeof(InfrastructureServiceExtensions));
-            services.AddScoped<IReadOnlyDatabaseContext, ReadOnlyDatabaseContext>();
+            services.AddScoped<IReadDatabaseContext, ReadDatabaseContext>();
             services.AddSingleton<ConnectionString>(new ConnectionString(configuration.GetConnectionString("ContinentContext")));
             return services;
         }

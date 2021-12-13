@@ -16,7 +16,7 @@ namespace Microservice.Service.Tests.UnitTests
         [Fact]
         public async Task ShouldVerifyHandlerCallsSearchAsync()
         {
-            var contextMock = new Mock<IReadOnlyDatabaseContext>();
+            var contextMock = new Mock<IReadDatabaseContext>();
             contextMock.Setup(m => m.SearchAsync(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(new Result<IReadOnlyList<SearchTermMatch>>(new List<SearchTermMatch>
             {

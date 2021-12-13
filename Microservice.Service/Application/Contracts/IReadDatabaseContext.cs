@@ -4,7 +4,7 @@ using Microservice.Service.Domain.ValueObjects;
 
 namespace Microservice.Service.Application.Contracts
 {
-    public interface IReadOnlyDatabaseContext
+    public interface IReadDatabaseContext
     {
         Task<Result<IReadOnlyList<SearchTermMatch>>> SearchAsync(string sql, object parameters, CancellationToken cancellationToken);
     }

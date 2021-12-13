@@ -6,10 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Microservice.Service.Tests.IntegrationTests
 {
-    public class TestBase
+    public class TestBaseFixture
     {
         private readonly ServiceProvider _serviceProvider;
-        public TestBase()
+        public TestBaseFixture()
         {
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
@@ -26,8 +26,8 @@ namespace Microservice.Service.Tests.IntegrationTests
 
         public T? GetService<T>() where T : notnull
         {
-            _ = _serviceProvider ?? throw new ArgumentNullException("ServiceProvider is null.");
-            return _serviceProvider.GetService<T>();
+            using var scope = _serviceProvider.CreateScope();
+            return scope.ServiceProvider.GetRequiredService<T>();
         }
     }
 }

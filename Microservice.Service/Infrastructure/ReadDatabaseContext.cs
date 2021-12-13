@@ -7,11 +7,11 @@ using Microservice.Service.Domain.ValueObjects;
 namespace Microservice.Service.Infrastructure
 {
 
-    public class ReadOnlyDatabaseContext : IReadOnlyDatabaseContext
+    public class ReadDatabaseContext : IReadDatabaseContext
     {
         private readonly ConnectionString _connectionString;
 
-        public ReadOnlyDatabaseContext(ConnectionString connectionString)
+        public ReadDatabaseContext(ConnectionString connectionString)
         {
             _ = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
             _connectionString = connectionString;
