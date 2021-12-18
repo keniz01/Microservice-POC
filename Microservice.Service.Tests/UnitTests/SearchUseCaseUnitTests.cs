@@ -1,5 +1,4 @@
 using Xunit;
-using Microservice.Service.Domain.ValueObjects;
 using System.Threading.Tasks;
 using Moq;
 using Microservice.Service.Application.Common;
@@ -14,15 +13,15 @@ namespace Microservice.Service.Tests.UnitTests
     public class SearchUseCaseUnitTests
     {
         [Fact]
-        public async Task ShouldVerifyHandlerCallsSearchAsync()
+        public async Task ShouldVerifySearchAsyncMethodCalledOnce()
         {
             var contextMock = new Mock<IReadDatabaseContext>();
-            contextMock.Setup(m => m.SearchAsync(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(new Result<IReadOnlyList<SearchTermMatch>>(new List<SearchTermMatch>
+            contextMock.Setup(m => 
+                m.SearchAsync(It.IsAny<string>(), It.IsAny<object>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(Result<IReadOnlyList<SearchTermMatch>>.Ok(new List<SearchTermMatch>
             {
-                new SearchTermMatch(new Id(Guid.NewGuid()), new Name("London"),
-                new Coordinates(-1.928002, 3.176920), new Area(290.90))
-            }, true, new List<string>()));
+                new SearchTermMatch(Guid.NewGuid(), "London", -1.928002, 3.176920, 290.90)
+            }));
 
             var handler = new GetSearchTermMatchQueryHandler(contextMock.Object);
 

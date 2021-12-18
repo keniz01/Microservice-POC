@@ -2,11 +2,9 @@ using Dapper;
 using Microservice.Service.Application.Contracts;
 using Microservice.Service.Application.Common;
 using Microsoft.Data.SqlClient;
-using Microservice.Service.Domain.ValueObjects;
 
 namespace Microservice.Service.Infrastructure
 {
-
     public class ReadDatabaseContext : IReadDatabaseContext
     {
         private readonly ConnectionString _connectionString;
@@ -17,21 +15,27 @@ namespace Microservice.Service.Infrastructure
             _connectionString = connectionString;
         }
 
-        public async Task<Result<IReadOnlyList<SearchTermMatch>>> SearchAsync(string sql, object? parameters, CancellationToken cancellationToken)
+        public async Task<Result> SearchAsync(string sql, object? parameters, CancellationToken cancellationToken)
         {
             using var connection = new SqlConnection(_connectionString.Value);
 
-            await connection.OpenAsync(cancellationToken);
+            try{
+
+                await connection.OpenAsync(cancellationToken);
+            }
+            catch(SqlException)
+            {
+                var errors = new List<string> { "" };
+                return Result.Fail(errors);
+            }
+
             var rawData = await connection.QueryAsync<dynamic>(sql, parameters);
             var result  = rawData.Select(m => 
-                    new SearchTermMatch(
-                        new Id(m.Id), 
-                        new Name(m.Name),
-                        new Coordinates(m.Latitude, m.Longitude), 
-                        new Area(m.Area)))
-                .ToList()
+                    new SearchTermMatch(m.Id, m.Name, m.Latitude, m.Longitude, m.Area))
+                .AsList()
                 .AsReadOnly();
-            return new Result<IReadOnlyList<SearchTermMatch>>(result, true, new List<string>());
+                
+            return Result<IReadOnlyList<SearchTermMatch>>.Ok(result);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Microservice.Service.Tests.IntegrationTests
     public class TestBaseFixture
     {
         private readonly ServiceProvider _serviceProvider;
+        
         public TestBaseFixture()
         {
             var configuration = new ConfigurationBuilder()

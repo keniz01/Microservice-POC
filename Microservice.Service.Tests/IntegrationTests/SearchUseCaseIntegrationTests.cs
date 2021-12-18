@@ -14,7 +14,7 @@ namespace Microservice.Service.Tests.IntegrationTests
             => _fixture = fixture ?? throw new ArgumentNullException(nameof(fixture));
 
        [Fact]
-        public async Task ShouldVerifySearchResponseSucceeded()
+        public async Task GetSearchTermMatchQueryHandlerShouldReturnSucceededEqualTrue()
         {
             var context = _fixture.GetService<IReadDatabaseContext>();
             var handler = new GetSearchTermMatchQueryHandler(context!);

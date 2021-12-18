@@ -6,6 +6,6 @@ namespace Microservice.Service.Application.Contracts
 {
     public interface IReadDatabaseContext
     {
-        Task<Result<IReadOnlyList<SearchTermMatch>>> SearchAsync(string sql, object parameters, CancellationToken cancellationToken);
+        Task<Result> SearchAsync(string sql, object parameters, CancellationToken cancellationToken);
     }
 }
